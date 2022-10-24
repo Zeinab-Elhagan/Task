@@ -1,0 +1,102 @@
+﻿@model IEnumerable<EVENTS.Models.Event>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Events</h1>
+    </div>
+    <div class="col text-right">
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </div>
+</div>
+
+<br/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventCoverphoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.albums)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.source)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventEndDate)
+            </td>
+            <td>
+            <img src="photos/@item.EventCoverphoto"  style="width:35px; height:35px;"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.albums)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SourceId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id=item.EventId  })|
+                 @Html.ActionLink("Details", "Details", new {id=item.EventId })|
+                @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

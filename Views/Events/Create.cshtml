@@ -1,0 +1,81 @@
+﻿
+@model EVENTS.Models.Event
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Event</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EventId" class="control-label"></label>
+                <input asp-for="EventId" class="form-control" readonly/>
+                <span asp-validation-for="EventId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventTitle" class="control-label"></label>
+                <input asp-for="EventTitle" class="form-control" />
+                <span asp-validation-for="EventTitle" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EventCoverphoto" class="control-label"></label>
+                <input type="file" asp-for="EventCoverphoto" class="form-control" />
+               
+                <span asp-validation-for="EventCoverphoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventContent" class="control-label"></label>
+                <input asp-for="EventContent" class="form-control" />
+                <span asp-validation-for="EventContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventAddress" class="control-label"></label>
+                <input asp-for="EventAddress" class="form-control" />
+                <span asp-validation-for="EventAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventStartDate" class="control-label"></label>
+                <input type="datetime" asp-for="EventStartDate" class="form-control" />
+                <span asp-validation-for="EventStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventEndDate" class="control-label"></label>
+                <input type="datetime" asp-for="EventEndDate" class="form-control" />
+                <span asp-validation-for="EventEndDate" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="source" class="control-label"></label>
+                <input asp-for="source" class="form-control" />
+                 <option  value-""> select source </option>
+                <span asp-validation-for="source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="albums" class="control-label"></label>        
+                <input type="file" asp-for="albums" class="form-control" />
+                <span asp-validation-for="albums" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input  asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
